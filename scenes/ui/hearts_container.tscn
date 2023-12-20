@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8yel6d1f4pyy"]
+
+[ext_resource type="Script" path="res://scenes/ui/hearts_container.gd" id="1_vciop"]
+
+[node name="HeartsContainer" type="HBoxContainer"]
+layout_direction = 3
+script = ExtResource("1_vciop")

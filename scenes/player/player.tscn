@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5a0te3oxcdeh"]
+[gd_scene load_steps=15 format=3 uid="uid://c5a0te3oxcdeh"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_hol8h"]
 [ext_resource type="Texture2D" uid="uid://4bos11wme8yy" path="res://assets/characters/player_sprites.png" id="1_wdxso"]
+[ext_resource type="Resource" uid="uid://tbrwswiyq7ql" path="res://resources/playerInventory.tres" id="2_pdsu7"]
 
 [sub_resource type="Animation" id="Animation_hgcux"]
 length = 0.001
@@ -106,6 +107,21 @@ size = Vector2(15, 4)
 radius = 8.375
 height = 18.75
 
+[sub_resource type="Animation" id="Animation_mvipx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_m2pbl"]
 resource_name = "hurtBlink"
 length = 0.4
@@ -124,21 +140,6 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 0.490196), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_mvipx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cbsj8"]
 _data = {
 "RESET": SubResource("Animation_mvipx"),
@@ -149,6 +150,7 @@ _data = {
 z_index = 1
 texture_filter = 1
 script = ExtResource("1_hol8h")
+inventory = ExtResource("2_pdsu7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 clip_children = 2
@@ -190,7 +192,8 @@ libraries = {
 "": SubResource("AnimationLibrary_cbsj8")
 }
 
-[node name="hurtTimer" type="Timer" parent="."]
+[node name="HurtTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_exited" from="HurtBox" to="." method="_on_hurt_box_area_exited"]

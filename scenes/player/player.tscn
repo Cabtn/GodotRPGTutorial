@@ -384,6 +384,7 @@ libraries = {
 one_shot = true
 
 [node name="Weapon" type="Node2D" parent="."]
+visible = false
 position = Vector2(6, -1)
 rotation = 2.0944
 

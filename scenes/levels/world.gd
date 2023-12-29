@@ -9,7 +9,6 @@ func _ready():
 	heartsContainer.updateHearts(player.currentHealth)
 	player.healthChanged.connect(heartsContainer.updateHearts)
 
-
 func _on_inventory_gui_closed():
 	get_tree().paused = false
 

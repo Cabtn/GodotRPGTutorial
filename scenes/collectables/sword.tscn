@@ -1,12 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://8cw52wvpyq03"]
+[gd_scene load_steps=9 format=3 uid="uid://8cw52wvpyq03"]
 
 [ext_resource type="PackedScene" uid="uid://cjwqvw2ty2k8h" path="res://scenes/collectables/collectable.tscn" id="1_kif7l"]
 [ext_resource type="Script" path="res://scenes/collectables/sword.gd" id="2_7ssdx"]
 [ext_resource type="Texture2D" uid="uid://clcafvcbfddit" path="res://assets/items/Sprite.png" id="2_i44u4"]
+[ext_resource type="Resource" uid="uid://bpbsmvphmv5kg" path="res://resources/items/sword.tres" id="3_82xpt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h4mt"]
 resource_local_to_scene = true
 size = Vector2(6, 18)
+
+[sub_resource type="Animation" id="Animation_vo50k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
 
 [sub_resource type="Animation" id="Animation_ahfn7"]
 resource_name = "spin"
@@ -25,21 +41,6 @@ tracks/0/keys = {
 "values": [3.48787e-16, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_vo50k"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [6.28319]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xqe2g"]
 _data = {
 "RESET": SubResource("Animation_vo50k"),
@@ -48,6 +49,7 @@ _data = {
 
 [node name="Sword" instance=ExtResource("1_kif7l")]
 script = ExtResource("2_7ssdx")
+itemRes = ExtResource("3_82xpt")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_2h4mt")

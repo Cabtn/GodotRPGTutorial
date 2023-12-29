@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://pau4bf1qdxtt"]
+
+[ext_resource type="Texture2D" uid="uid://clcafvcbfddit" path="res://assets/items/Sprite.png" id="1_jhhrs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg55l"]
+size = Vector2(4, 9)
+
+[node name="Sword" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, -5)
+texture = ExtResource("1_jhhrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, -7.5)
+shape = SubResource("RectangleShape2D_mg55l")

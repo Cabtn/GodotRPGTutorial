@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://54v6eovteqda"]
+
+[ext_resource type="Script" path="res://scenes/ui/item_stack_gui.gd" id="1_75wv7"]
+[ext_resource type="FontFile" uid="uid://3no8pgvhrqa3" path="res://assets/ui/NormalFont.ttf" id="2_wboti"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("1_75wv7")
+
+[node name="Item" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(11, 14)
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 9.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wboti")
+theme_override_font_sizes/font_size = 8
+text = "99"
+horizontal_alignment = 2

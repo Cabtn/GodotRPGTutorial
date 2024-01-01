@@ -3,11 +3,13 @@ extends CharacterBody2D
 @export var speed = 30
 @export var limit = 0.5
 @export var endPoint: Marker2D
+@export var knockBackPower: int = 500
 
 @onready var animations = $AnimationPlayer
 
 var startPosition
 var endPosition
+var isDead: bool = false
 
 func _ready():
 	startPosition = position
@@ -37,6 +39,22 @@ func updateAnimation():
 		
 	
 func _physics_process(_delta):
+	if isDead: return
 	updateVelocity()
 	move_and_slide()
 	updateAnimation()
+
+func knockback(enemyVelocity: Vector2):
+	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockBackPower
+	velocity = knockbackDirection
+	move_and_slide()
+
+
+func _on_hurt_box_area_entered(area):
+	if area == $Hitbox: return
+	$Hitbox.set_deferred("monitorable", false)
+	knockback(area.gravity_direction)
+	isDead = true
+	animations.play("death")
+	await animations.animation_finished
+	queue_free()

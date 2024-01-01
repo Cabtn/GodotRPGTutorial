@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bydda3pebvo34"]
+[gd_scene load_steps=3 format=3 uid="uid://bydda3pebvo34"]
 
 [ext_resource type="Texture2D" uid="uid://dyasm8n2vakv6" path="res://assets/ui/inventorySlot.png" id="1_j0tvd"]
 [ext_resource type="Script" path="res://scenes/ui/slot_gui.gd" id="1_u3hl4"]
-[ext_resource type="FontFile" uid="uid://3no8pgvhrqa3" path="res://assets/ui/NormalFont.ttf" id="3_1ps1j"]
 
-[node name="Slot" type="Panel"]
+[node name="Slot" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(20, 20)
 offset_right = 20.0
@@ -21,23 +20,3 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
-
-[node name="Panel" type="Panel" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-
-[node name="Label" type="Label" parent="CenterContainer/Panel"]
-custom_minimum_size = Vector2(11, 14)
-layout_mode = 0
-offset_left = -2.0
-offset_top = -1.0
-offset_right = 9.0
-offset_bottom = 13.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_1ps1j")
-theme_override_font_sizes/font_size = 8
-text = "99"
-horizontal_alignment = 2
